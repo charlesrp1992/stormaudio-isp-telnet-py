@@ -5,6 +5,9 @@ from async_timeout import timeout
 from asyncio import create_task, Event, sleep, Task, TimeoutError
 from decimal import *
 from enum import IntFlag, auto
+from dataclasses import dataclass, field
+from decimal import Decimal
+from typing import Optional, Dict, Callable
 
 import typing
 
@@ -144,6 +147,10 @@ class TelnetClient():
         except (TimeoutError, OSError) as exc:
             raise ConnectionError from exc
 
+        # Prime lists on connect (now that writer exists)
+        await self._async_send_command('ssp.zones.list')
+        await self._async_send_command('ssp.input.list')
+
         self._keepalive_received = False
         self._keepalive_loop_task = create_task(self._keepalive_loop())
 
@@ -258,7 +265,7 @@ class TelnetClient():
                         self._eval_presets
                     )
 
-                    preset_read_result: ReadLinesResult = self._eval__single_bracket_field(
+                                        preset_read_result: ReadLinesResult = self._eval__single_bracket_field(
                         ['ssp', 'preset'],
                         lambda x: self._device_state.__setattr__(
                             'preset_id', x),
