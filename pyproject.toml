@@ -1,6 +1,6 @@
 [project]
 name = "stormaudio_isp_telnet"
-version = "0.8.0"
+version = "1.0.0"
 authors = [
     {name = "Philip Flesher", email = "philip@fleshers.org"},
 ]
