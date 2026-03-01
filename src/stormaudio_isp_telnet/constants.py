@@ -96,3 +96,25 @@ class ZoneLayoutType(Enum):
 class ZoneType(Enum):
     MAIN_SPEAKERS = 0
     ALTERNATE_SPEAKERS = 1
+
+
+class LoudnessLevel(Enum):
+    OFF = 0
+    LOW = 1
+    MEDIUM = 2
+    FULL = 3
+
+
+class SurroundModeID(Enum):
+    NATIVE = 0
+    STEREO_DOWNMIX = 1
+    DOLBY_SURROUND = 2
+    DTS_NEURAL_X = 3
+    AURO_MATIC = 4
+
+
+class DolbyModeID(Enum):
+    OFF = 0
+    MOVIE = 1
+    MUSIC = 2
+    NIGHT = 3

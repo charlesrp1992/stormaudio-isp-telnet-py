@@ -9,7 +9,7 @@ class TokenizedLine:
         line: str
     ):
         self._line: str = line
-        self._field_tokens: list[str | list(str)] = None
+        self._field_tokens: list[str | list[str]] = None
 
         remaining_line: str = line
         bracket_start_idx: int = line.find('[')
@@ -34,7 +34,7 @@ class TokenizedLine:
 
     def get_field_tokens(
         self
-    ) -> list[str | list(str)]:
+    ) -> list[str | list[str]]:
         return self._field_tokens
 
 
@@ -58,7 +58,7 @@ class TokenizedLineReader:
 
     def pop_next_tokens_if_equal(
         self,
-        expected: list(str | list(str))
+        expected: list(str | list[str])
     ) -> bool:
         popped_count: int = 0
         for expected_element in expected:
@@ -71,7 +71,7 @@ class TokenizedLineReader:
 
     def pop_next_token_if_equal(
         self,
-        expected: str | list(str)
+        expected: str | list[str]
     ) -> bool:
         if self._next_token_idx is not None and self._next_token_idx < len(self._line.get_field_tokens()):
             next_token = self._line.get_field_tokens()[self._next_token_idx]
@@ -82,7 +82,7 @@ class TokenizedLineReader:
 
     def pop_next_token(
         self
-    ) -> str | list(str):
+    ) -> str | list[str]:
         if self._next_token_idx is not None and self._next_token_idx < len(self._line.get_field_tokens()):
             next_token = self._line.get_field_tokens()[self._next_token_idx]
             self._next_token_idx += 1
