@@ -1,8 +1,7 @@
 """Classes for communicating with the Storm Audio ISP series sound processors"""
 
 from __future__ import annotations
-from async_timeout import timeout
-from asyncio import create_task, Event, sleep, Task, TimeoutError
+from asyncio import create_task, Event, sleep, Task, timeout, TimeoutError
 from decimal import *
 from enum import IntFlag, auto
 

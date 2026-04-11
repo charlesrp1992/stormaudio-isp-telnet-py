@@ -6,14 +6,13 @@ authors = [
 ]
 description = "Telnet client to interface with the Storm Audio ISP series sound processors"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.9"
+    "Programming Language :: Python :: 3.11"
 ]
 dependencies = [
-    "telnetlib3==2.0.3",
-    "async_timeout>=4.0.2"
+    "telnetlib3==2.0.8"
 ]
